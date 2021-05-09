@@ -4,5 +4,5 @@ const dbpass = 'pass'
 const port = process.env.PORT|5432
 
 //const client = new Client({ port: port, host: 'localhost', user: dbuser, password: dbpass, database: "imagequiz" });
-const client = new Client({ connectionString: process.env.DATABASE_URL, port: port})
+const client = new Client({ connectionString: process.env.DATABASE_URL, ssl: {rejectUnauthorized: false}})
 module.exports = client;
