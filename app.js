@@ -27,6 +27,21 @@ server.get('/quizzes', async (req, res) => {
   }
 })
 
+server.get('/images', async (req, res) => {
+  try {
+    const response = await client.query(
+      `
+      SELECT * FROM flowers;
+      `
+      )
+      console.log(response.rows)
+      res.send(response.rows)
+  } catch (error) {
+    res.sendStatus(500)
+    console.log(error)
+  }
+})
+
 server.get('/quiz/:id', async (req, res) => {
   const quizid = req.params.id
   console.log(quizid)
