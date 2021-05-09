@@ -1,7 +1,7 @@
 const client = require('./db/index.js')
 const express = require('express')
 const server = express()
-const port = 3001
+const port = process.env.PORT || 3001
 const cors = require('cors')
 
 server.use(cors())
